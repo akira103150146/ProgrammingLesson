@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>進階響應式三欄式網站</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+        font-family: sans-serif;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 固定 Header & Footer */
+    header {
+        background-color: #0077cc;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    footer {
+        background-color: #eee;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    /* 內容容器區域 */
+    .container {
+        display: flex;
+        flex: 1;
+        padding: 80px 20px 60px;
+        /* 頂部 & 底部空間留給 header/footer */
+        gap: 20px;
+        min-height: calc(100vh - 140px);
+        /* 讓中間自動填滿 */
+    }
+
+    /* 三欄樣式 */
+    .left,
+    .center,
+    .right {
+        background-color: #e0f7fa;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .left,
+    .right {
+        flex: 1;
+    }
+
+    .center {
+        flex: 2;
+    }
+
+    /* 導覽列與漢堡選單 */
+    .nav {
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .hamburger {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* 📱 響應式手機排版 */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .nav {
+            display: none;
+            flex-direction: column;
+            background-color: #0077cc;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .nav.show {
+            display: flex;
+        }
+
+        .hamburger {
+            display: block;
+        }
+
+        .left,
+        .center,
+        .right {
+            width: 100%;
+        }
+    }
+</style>
+<script>
+    function toggleMenu() {
+        const nav = document.querySelector('.nav');
+        nav.classList.toggle('show');
+    }
+</script>
+
+<body>
+
+    <header>
+        <div class="logo">🌟 我的網站</div>
+        <nav class="nav">
+            <a href="#">首頁</a>
+            <a href="#">關於我</a>
+            <a href="#">作品集</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <div class="container">
+        <aside class="left">左側欄</aside>
+        <main class="center">
+            <h2>主要內容</h2>
+            <p>這是中心區塊，會撐滿畫面。</p>
+        </main>
+        <aside class="right">右側欄</aside>
+    </div>
+
+    <footer>
+        <p>© 2025 響應式網站</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

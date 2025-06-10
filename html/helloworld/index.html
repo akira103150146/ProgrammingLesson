@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--SEO優化-->
+    <meta name="Description" content="學習 html 和 css">
+    <meta name="keywords" content="html css">
+    <title>Hello World!</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#header">h標籤</a></li>
+        <li><a href="#list">無序列表 有序列表</a></li>
+        <li><a href="#table">表格</a></li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="header">
+        <!--h1最大依照數字變大變小-->
+        <h1>Hello World!</h1>
+        <h2>Hello World!</h2>
+        <p>My First Website</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="list">
+        <!--無序列表-->
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+        </ul>
+        <!--有序列表-->
+        <ol>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+        </ol>
+    </div>
+
+    <!--新增圖片 當圖片連結失效會用alt 文字取代 如果只設定寬高其中之一會自動按照比例縮放-->
+    <img src="./img/cat.jpg" alt="貓" height="240px">
+
+    <div id="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>班級</th>
+                    <th>成績</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Abby</td>
+                    <td>斗南高中</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Abby</td>
+                    <td>斗南高中</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Abby</td>
+                    <td>斗南高中</td>
+                    <td>100</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--target=_blank 會開新分頁再跳轉-->
+    <a href="https://www.google.com" target="_blank">Google</a>
+    <a href="mailto:sunroad0418@gmail.com">寄信</a>
+
+
+    <!--method GET POST PUT DELETE-->
+    <form action="XXX.com/api" method="POST">
+        <label>電子郵件</label>
+        <input type="email" name="email" id="email">
+        <label>密碼</label>
+        <input type="password" name="password" id="passowrd">
+        <input type="submit" value="登入">
+    </form>
+
+
+</body>
+
+</html>

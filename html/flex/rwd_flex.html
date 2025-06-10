@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>響應式三欄式版面</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 10px;
+      }
+      
+      header, footer {
+        background-color: #0077cc;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      
+      /* 三欄區塊 */
+      .container {
+        display: flex;
+        gap: 20px;
+      }
+      
+      /* 每一欄的樣式 */
+      .left, .center, .right {
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #e0f7fa;
+      }
+      
+      /* 欄寬比例 */
+      .left, .right {
+        flex: 1;
+      }
+      
+      .center {
+        flex: 2;
+      }
+      
+      /* 頁尾樣式 */
+      footer {
+        margin-top: 20px;
+        padding: 10px;
+        text-align: center;
+        color: #333;
+        background-color: #eee;
+      }
+      
+      /* 📱 響應式設計：螢幕小於768px 時改為直向堆疊 */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+      
+        .left, .center, .right {
+          width: 100%;
+        }
+      }      
+</style>
+
+<body>
+    <header>
+        <h1>🌟 響應式三欄式版面</h1>
+    </header>
+
+    <div class="container">
+        <aside class="left">左側欄</aside>
+        <main class="center">主要內容區</main>
+        <aside class="right">右側欄</aside>
+    </div>
+
+    <footer>
+        <p>© 2025 響應式網站</p>
+    </footer>
+</body>
+
+</html>

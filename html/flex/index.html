@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flex 三欄式網頁</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      
+      header, footer {
+        background-color: #1e90ff;
+        color: white;
+        text-align: center;
+        padding: 15px;
+      }
+      
+      .container {
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+      }
+      
+      /* 三欄區塊 */
+      .left {
+        flex: 1;
+        background-color: #ddd;
+        padding: 15px;
+      }
+      
+      .center {
+        flex: 2;
+        background-color: #fff;
+        padding: 15px;
+      }
+      
+      .right {
+        flex: 1;
+        background-color: #ddd;
+        padding: 15px;
+      }
+      
+      footer {
+        margin-top: 20px;
+        padding: 10px;
+      }
+      
+</style>
+
+<body>
+    <header>
+        <h1>🌟 Flexbox 三欄式版面</h1>
+    </header>
+
+    <div class="container">
+        <aside class="left">左側欄</aside>
+        <main class="center">主要內容區</main>
+        <aside class="right">右側欄</aside>
+    </div>
+
+    <footer>
+        <p>© 2025 我的網站</p>
+    </footer>
+</body>
+
+</html>
