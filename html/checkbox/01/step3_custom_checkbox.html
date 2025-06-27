@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>步驟3 - 自訂 checkbox 樣式</title>
+  <style>
+    form > div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    label {
+      color: #666;
+      cursor: pointer;
+    }
+
+    /* 自訂 checkbox 外觀 */
+    input[type="checkbox"] {
+      appearance: none; /* 移除瀏覽器預設樣式 */
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 1px solid #666;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div>
+      <input id="check-1" type="checkbox" />
+      <label for="check-1">Checkbox 1</label>
+    </div>
+  </form>
+</body>
+</html>

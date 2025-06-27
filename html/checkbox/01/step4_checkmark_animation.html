@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>步驟4 - 加入✔符號動畫</title>
+  <style>
+    form > div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    label {
+      color: #666;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 1px solid #666;
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+    }
+
+    /* 額外加入✔符號，初始為透明 */
+    input[type="checkbox"]::after {
+      content: "\2714"; /* ✔ */
+      color: #127acf;
+      opacity: 0;
+      transition: opacity 150ms ease-in-out;
+    }
+
+    /* 勾選後才顯示 ✔ */
+    input[type="checkbox"]:checked::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div>
+      <input id="check-1" type="checkbox" />
+      <label for="check-1">Checkbox 1</label>
+    </div>
+  </form>
+</body>
+</html>

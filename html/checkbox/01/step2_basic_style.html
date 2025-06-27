@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>步驟2 - 基本樣式</title>
+  <style>
+    /* 容器樣式 */
+    form > div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* label 預設顏色 */
+    label {
+      color: #666;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- checkbox 加上簡單排版與 label 顏色 -->
+  <form>
+    <div>
+      <input id="check-1" type="checkbox" />
+      <label for="check-1">Checkbox 1</label>
+    </div>
+  </form>
+</body>
+</html>

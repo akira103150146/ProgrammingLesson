@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>步驟5 - 加入互動變色</title>
+  <style>
+    form {
+      --_clr-primary: #666;
+      --_clr-hover: #f33195;
+      --_clr-checked: #127acf;
+    }
+
+    form > div {
+      --_clr-current: var(--_clr-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    label {
+      cursor: pointer;
+      color: var(--_clr-current);
+      transition: color 150ms ease-in-out;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 1px solid var(--_clr-current);
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"]::after {
+      content: "\2714";
+      opacity: 0;
+      transition: opacity 150ms ease-in-out;
+      color: var(--_clr-checked);
+    }
+
+    /* hover 時改變顏色 */
+    label:hover,
+    input[type="checkbox"]:hover,
+    input[type="checkbox"]:hover + label {
+      --_clr-current: var(--_clr-hover);
+    }
+
+    /* 勾選後改變顏色 */
+    input[type="checkbox"]:checked,
+    input[type="checkbox"]:checked + label {
+      --_clr-current: var(--_clr-checked);
+    }
+
+    /* hover 時顯示淡入 ✔ */
+    input[type="checkbox"]:hover::after {
+      opacity: 0.5;
+      color: var(--_clr-hover);
+    }
+
+    /* 勾選時 ✔ 完整顯示 */
+    input[type="checkbox"]:checked::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div>
+      <input id="check-1" type="checkbox" />
+      <label for="check-1">Checkbox 1</label>
+    </div>
+  </form>
+</body>
+</html>

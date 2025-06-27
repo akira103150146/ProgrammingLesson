@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkbox 動畫範例</title>
+  <style>
+    /* 設定表單的主色調與互動顏色 */
+    .my-form {
+      --_clr-primary: #666;       /* 預設文字與邊框顏色 */
+      --_clr-hover: #f33195;       /* 滑鼠移入時的顏色 */
+      --_clr-checked: #127acf;     /* 勾選後的顏色 */
+    }
+
+    /* 每一組 checkbox 和 label 的容器 */
+    .my-form > div {
+      --_clr-current: var(--_clr-primary); /* 預設使用主色調 */
+      display: flex;               /* 水平排列 checkbox 與 label */
+      align-items: center;        /* 垂直置中 */
+      gap: 0.5rem;                /* 元素之間的間距 */
+    }
+
+    /* 除第一個外，每組之間垂直留白 */
+    .my-form > div + div {
+      margin-block-start: 0.5rem;
+    }
+
+    /* label 樣式：使用目前顏色，並加上滑順轉場動畫 */
+    .my-form label {
+      cursor: pointer;
+      color: var(--_clr-current);
+      transition: color 150ms ease-in-out;
+    }
+
+    /* 自訂 checkbox 樣式 */
+    .my-form input[type="checkbox"] {
+      appearance: none;               /* 移除瀏覽器預設外觀 */
+      outline: none;
+      width: 1.5rem;
+      height: 1.5rem;
+      aspect-ratio: 1;                /* 保持正方形 */
+      padding: 0.25rem;
+      background: transparent;
+      border: 1px solid var(--_clr-current); /* 使用目前顏色畫邊框 */
+      border-radius: 2px;
+      display: grid;
+      place-content: center;         /* 將 ✔ 置中 */
+      cursor: pointer;
+    }
+
+    /* 自訂 checkbox 裡的 ✔ 符號，初始不顯示 */
+    .my-form input[type="checkbox"]::after {
+      content: "\2714";             /* ✔ 符號 */
+      opacity: 0;
+      transition: opacity 150ms ease-in-out;
+      color: var(--_clr-checked);    /* 勾選時顏色 */
+      font-size: inherit;
+      font-family: inherit;
+    }
+
+    /* 滑鼠移到 checkbox 或 label 時的互動顏色 */
+    .my-form label:hover,
+    .my-form input[type="checkbox"]:focus-visible,
+    .my-form input[type="checkbox"]:focus-visible + label,
+    .my-form input[type="checkbox"]:hover,
+    .my-form input[type="checkbox"]:hover + label {
+      --_clr-current: var(--_clr-hover);  /* 改成 hover 色 */
+    }
+
+    /* 滑鼠移到 checkbox 時顯示半透明的 ✔ 符號 */
+    .my-form input[type="checkbox"]:focus-visible::after,
+    .my-form input[type="checkbox"]:hover::after {
+      opacity: 0.5;
+      color: var(--_clr-hover);
+    }
+
+    /* 當 checkbox 被勾選且沒有 hover 時，使用勾選色 */
+    .my-form input[type="checkbox"]:checked + label:not(:hover),
+    .my-form input[type="checkbox"]:checked:not(:hover) {
+      --_clr-current: var(--_clr-checked);
+    }
+
+    /* 當 checkbox 被勾選時，✔ 顯示出來 */
+    .my-form input[type="checkbox"]:checked::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <form class="my-form">
+    <div>
+      <input id="check-1" type="checkbox" />
+      <label for="check-1">Checkbox 1</label>
+    </div>
+    <div>
+      <input checked id="check-2" type="checkbox" />
+      <label for="check-2">Checkbox 2</label>
+    </div>
+    <div>
+      <input id="check-3" type="checkbox" />
+      <label for="check-3">Checkbox 3</label>
+    </div>
+    <div>
+      <input id="check-4" type="checkbox" />
+      <label for="check-4">Checkbox 4</label>
+    </div>
+  </form>
+</body>
+</html>
